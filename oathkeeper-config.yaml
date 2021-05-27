@@ -1,0 +1,29 @@
+access_rules:
+  repositories:
+    - file:///rules.json
+authenticators:
+  oauth2_introspection:
+    config:
+      introspection_url: http://hydra-server:4445/oauth2/introspect
+      trusted_issuers:
+        - 'http://127.0.0.1:9000/'
+      scope_strategy: exact
+    enabled: true
+authorizers:
+  allow:
+    enabled: true
+mutators:
+  noop:
+    enabled: true
+errors:
+  handlers:
+    json:
+      config:
+        verbose: true
+      enabled: true
+log:
+  leak_sensitive_values: false
+  format: json
+  level: debug
+profiling: cpu
+version: v0.38.0

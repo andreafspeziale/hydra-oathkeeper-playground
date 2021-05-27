@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "version": "v0.38.0",
+    "upstream": {
+      "url": "https://httpbin.org/anything/header"
+    },
+    "match": {
+      "url": "http://<127.0.0.1|localhost>:4455/anything/header",
+      "methods": ["GET"]
+    },
+    "authenticators": [
+      {
+        "handler": "oauth2_introspection"
+      }
+    ],
+    "authorizer": {
+      "handler": "allow"
+    },
+    "mutators": [
+      {
+        "handler": "noop"
+      }
+    ]
+  }
+]

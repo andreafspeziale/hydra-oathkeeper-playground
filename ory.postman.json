@@ -1,0 +1,705 @@
+{
+	"info": {
+		"_postman_id": "78ed214c-7436-4bc1-95e7-f676e9f07642",
+		"name": "Ory",
+		"description": "# Ory\n\nOry is a SaaS platform offering a variety of APIs and services built on top of a buzzing open source ecosystem.\n\nhttps://www.ory.sh/docs/",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Hydra",
+			"item": [
+				{
+					"name": "Get token",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "some-consumer",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "some-secret",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic c29tZS1jbGllbnQ6c29tZS1zZWNyZXQ=",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "some-consumer",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "client_secret",
+									"value": "some-secret",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "scope",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HYDRA_PROTOCOL}}://{{HYDRA_HOST}}:{{HYDRA_PUBLIC_PORT}}/oauth2/token",
+							"protocol": "{{HYDRA_PROTOCOL}}",
+							"host": [
+								"{{HYDRA_HOST}}"
+							],
+							"port": "{{HYDRA_PUBLIC_PORT}}",
+							"path": [
+								"oauth2",
+								"token"
+							]
+						},
+						"description": "Get token using Basic authentication and client_credentials grant type"
+					},
+					"response": [
+						{
+							"name": "Get token - 401 Unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Basic c29tZS1jbGllbnQ6c29tZS1zZWNyZXQ=",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "grant_type",
+											"value": "client_credentials",
+											"type": "text"
+										},
+										{
+											"key": "client_id",
+											"value": "some-consumer",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "client_secret",
+											"value": "some-secret",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "scope",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:9000/oauth2/token",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9000",
+									"path": [
+										"oauth2",
+										"token"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-store"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 27 May 2021 09:21:05 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "334"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"invalid_client\",\n    \"error_verbose\": \"Client authentication failed (e.g., unknown client, no client authentication included, or unsupported authentication method)\",\n    \"error_description\": \"Client authentication failed (e.g., unknown client, no client authentication included, or unsupported authentication method)\",\n    \"status_code\": 401\n}"
+						},
+						{
+							"name": "Get token - 200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Basic c29tZS1jbGllbnQ6c29tZS1zZWNyZXQ=",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "grant_type",
+											"value": "client_credentials",
+											"type": "text"
+										},
+										{
+											"key": "client_id",
+											"value": "some-consumer",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "client_secret",
+											"value": "some-secret",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "scope",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:9000/oauth2/token",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "9000",
+									"path": [
+										"oauth2",
+										"token"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-store"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 27 May 2021 09:51:29 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "157"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"access_token\": \"kLLrH9jOSV1qtWUl7W3I5JN92cojP0SuHaBfQUO_aSY.WKZMmdoz2hn6ECWhkc1n85wulRQvERWPvNZqLb3weyc\",\n    \"expires_in\": 3599,\n    \"scope\": \"\",\n    \"token_type\": \"bearer\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Introspect token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "token",
+									"value": "yaoSJzt8icpxroR4P8LymRUsPNPZ6InrH-Nz2bQq6cQ.Ig_TNBF41rpQBid6C5LtVRFRS5TO92tvoVnXLgacBeg",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{HYDRA_PROTOCOL}}://{{HYDRA_HOST}}:{{HYDRA_MANAGEMENT_PORT}}/oauth2/introspect",
+							"protocol": "{{HYDRA_PROTOCOL}}",
+							"host": [
+								"{{HYDRA_HOST}}"
+							],
+							"port": "{{HYDRA_MANAGEMENT_PORT}}",
+							"path": [
+								"oauth2",
+								"introspect"
+							]
+						},
+						"description": "Token introspection"
+					},
+					"response": [
+						{
+							"name": "Introspect token - 200 OK - active: false",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "token",
+											"value": "kLLrH9jOSV1qtWUl7W3I5JN92cojP0SuHaBfQUO_aSY.WKZMmdoz2hn6ECWhkc1n85wulRQvERWPvNZqLb3weyc",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:9001/oauth2/introspect",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "9001",
+									"path": [
+										"oauth2",
+										"introspect"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-store"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 27 May 2021 12:47:02 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "17"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"active\": false\n}"
+						},
+						{
+							"name": "Introspect token - 200 OK - active: true",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "token",
+											"value": "yaoSJzt8icpxroR4P8LymRUsPNPZ6InrH-Nz2bQq6cQ.Ig_TNBF41rpQBid6C5LtVRFRS5TO92tvoVnXLgacBeg",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{HYDRA_PROTOCOL}}://{{HYDRA_HOST}}:{{HYDRA_MANAGEMENT_PORT}}/oauth2/introspect",
+									"protocol": "{{HYDRA_PROTOCOL}}",
+									"host": [
+										"{{HYDRA_HOST}}"
+									],
+									"port": "{{HYDRA_MANAGEMENT_PORT}}",
+									"path": [
+										"oauth2",
+										"introspect"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 27 May 2021 14:41:32 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "206"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"active\": true,\n    \"client_id\": \"some-consumer\",\n    \"sub\": \"some-consumer\",\n    \"exp\": 1622130081,\n    \"iat\": 1622126481,\n    \"nbf\": 1622126481,\n    \"aud\": [],\n    \"iss\": \"http://127.0.0.1:9000/\",\n    \"token_type\": \"Bearer\",\n    \"token_use\": \"access_token\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Alive",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/health/alive",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"health",
+								"alive"
+							]
+						},
+						"description": "Alive API check"
+					},
+					"response": [
+						{
+							"name": "Alive - 200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9000/health/alive",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9000",
+									"path": [
+										"health",
+										"alive"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 27 May 2021 09:20:30 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "15"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"ok\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Ready",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/health/ready",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"health",
+								"ready"
+							]
+						},
+						"description": "Ready API check"
+					},
+					"response": [
+						{
+							"name": "Ready - 200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:9000/health/ready",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9000",
+									"path": [
+										"health",
+										"ready"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 27 May 2021 09:20:33 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "15"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"ok\"\n}"
+						}
+					]
+				}
+			],
+			"description": "# Hydra\nHydra is an OAuth 2.0 and OpenID Connect Provider. In other words, an implementation of the OAuth 2.0 Authorization Framework as well as the OpenID Connect Core 1.0 framework. As such, it issues OAuth 2.0 Access, Refresh, and ID Tokens that enable third-parties to access your APIs in the name of your users.\n\nhttps://www.ory.sh/hydra/docs/"
+		},
+		{
+			"name": "Oathkeeper",
+			"item": [],
+			"description": "# Oathkeeper\nORY Oathkeeper authorizes incoming HTTP requests. It can be the Policy Enforcement Point in your cloud architecture, i.e. a reverse proxy in front of your upstream API or web server that rejects unauthorized requests and forwards authorized ones to your server. If you want to use another API Gateway (Kong, Nginx, Envoy, AWS API Gateway, ...), Oathkeeper can also plug into that and act as its Policy Decision Point.\n\nhttps://www.ory.sh/oathkeeper/docs/"
+		},
+		{
+			"name": "Test",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "T5DeD5_C2xuYWUSPMSngQydsYTeBXNfR7z41708VHNo.U9-bGH1yP0kSfS7M6i0e06rUtfWhk954vniUGfUw_hU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{OATH_PROTOCOL}}://{{OATH_HOST}}:{{OATH_PROXY_PORT}}/anything/header",
+					"protocol": "{{OATH_PROTOCOL}}",
+					"host": [
+						"{{OATH_HOST}}"
+					],
+					"port": "{{OATH_PROXY_PORT}}",
+					"path": [
+						"anything",
+						"header"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Test - 401 Unauthorized",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OATH_PROTOCOL}}://{{OATH_HOST}}:{{OATH_PROXY_PORT}}/anything/header",
+							"protocol": "{{OATH_PROTOCOL}}",
+							"host": [
+								"{{OATH_HOST}}"
+							],
+							"port": "{{OATH_PROXY_PORT}}",
+							"path": [
+								"anything",
+								"header"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 27 May 2021 14:45:10 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "141"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": {\n        \"code\": 401,\n        \"status\": \"Unauthorized\",\n        \"reason\": \"Access token i says token is not active\",\n        \"message\": \"Access credentials are invalid\"\n    }\n}"
+				},
+				{
+					"name": "Test - 200 OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{OATH_PROTOCOL}}://{{OATH_HOST}}:{{OATH_PROXY_PORT}}/anything/header",
+							"protocol": "{{OATH_PROTOCOL}}",
+							"host": [
+								"{{OATH_HOST}}"
+							],
+							"port": "{{OATH_PROXY_PORT}}",
+							"path": [
+								"anything",
+								"header"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "646"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 27 May 2021 14:45:50 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "gunicorn/19.9.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"args\": {},\n    \"data\": \"\",\n    \"files\": {},\n    \"form\": {},\n    \"headers\": {\n        \"Accept\": \"*/*\",\n        \"Accept-Encoding\": \"gzip, deflate, br\",\n        \"Authorization\": \"Bearer T5DeD5_C2xuYWUSPMSngQydsYTeBXNfR7z41708VHNo.U9-bGH1yP0kSfS7M6i0e06rUtfWhk954vniUGfUw_hU\",\n        \"Cache-Control\": \"no-cache\",\n        \"Host\": \"httpbin.org\",\n        \"Postman-Token\": \"8e9dc389-35b3-48fd-8203-bf07f1e8eb49\",\n        \"User-Agent\": \"PostmanRuntime/7.28.0\",\n        \"X-Amzn-Trace-Id\": \"Root=1-60afb09e-46fe28b12b03ff64319dea8d\"\n    },\n    \"json\": null,\n    \"method\": \"GET\",\n    \"origin\": \"172.20.0.1, 87.8.54.55\",\n    \"url\": \"https://httpbin.org/anything/header/anything/header\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "HYDRA_PROTOCOL",
+			"value": "http"
+		},
+		{
+			"key": "HYDRA_HOST",
+			"value": "localhost"
+		},
+		{
+			"key": "HYDRA_PUBLIC_PORT",
+			"value": "9000"
+		},
+		{
+			"key": "HYDRA_MANAGEMENT_PORT",
+			"value": "9001"
+		},
+		{
+			"key": "OATH_PROTOCOL",
+			"value": "http"
+		},
+		{
+			"key": "OATH_HOST",
+			"value": "localhost"
+		},
+		{
+			"key": "OATH_PROXY_PORT",
+			"value": "4455"
+		},
+		{
+			"key": "OATH_API_PORT",
+			"value": "4456"
+		}
+	]
+}

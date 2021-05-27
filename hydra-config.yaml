@@ -1,0 +1,27 @@
+serve:
+  admin:
+    access_log:
+      disable_for_health: true
+  public:
+    access_log:
+      disable_for_health: true
+dsn: postgres://hydra:secret@hydra-psql:5432/hydra?sslmode=disable
+urls:
+  self:
+    issuer: http://127.0.0.1:9000/
+strategies:
+  access_token: opaque
+  scope: exact
+oauth2:
+  client_credentials:
+    default_grant_allowed_scope: false
+secrets:
+  system:
+    - 5JoSQjUUbMvxiTDRtRapooki31nc9UVb
+profiling: cpu
+tracing:
+  service_name: pagopa-hydra
+version: v1.10.0
+log:
+  format: json_pretty
+  level: debug
