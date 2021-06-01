@@ -59,12 +59,19 @@ $ docker run -it --rm \
     --id some-consumer \
     --secret some-secret \
     --grant-types client_credentials \
-    --response-types token
+    --response-types token \
+    --scope headers
 ```
 
 ## Oathkeeper
 
-Run the Oathkeeper server mounting the configuration and rules file
+Run the Oathkeeper server mounting the configuration and rules file.
+
+- `client-credentials`: enable only the `oauth2_client_credentials` authenticator
+  > It seems the default `oauth2_client_credentials` `scope_strategy` is `exact`
+- `token-introspection`: enable only the `oauth2_introspection` authenticator
+
+Both `authenticators` are enabled in the main config but I'm experimenting using them one at a time enabling the desired rule
 
 ```bash
 $ docker run --rm \
@@ -73,7 +80,7 @@ $ docker run --rm \
   -p 4455:4455 \
   -p 4456:4456 \
   -v $(pwd)/oathkeeper-config.yaml:/oathkeeper-config.yaml \
-  -v $(pwd)/rules.json:/rules.json \
+  -v $(pwd)/AUTHENTICATOR_PER_RULE_FOLDER/rules.json:/rules.json \
   oryd/oathkeeper:v0.38 \
   --config /oathkeeper-config.yaml \
   serve
